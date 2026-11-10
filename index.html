@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>AnatoMind 3D — Inson anatomiyasi atlasi</title>
+  <meta name="description" content="Inson tanasining interaktiv 3D atlasi: organni bosing va u haqida ma'lumot oling." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="scene"></canvas>
+
+  <header class="topbar">
+    <button id="menuBtn" class="icon-btn" aria-label="Organlar ro'yxati">☰</button>
+    <div class="brand">
+      <span class="logo">◉</span>
+      <span>AnatoMind <b>3D</b></span>
+    </div>
+    <span class="tagline">Inson anatomiyasi atlasi</span>
+  </header>
+
+  <aside id="sidebar" class="glass">
+    <input id="search" type="search" placeholder="Organni qidirish..." autocomplete="off" />
+    <ul id="organList"></ul>
+  </aside>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <div id="hint" class="hint glass">👆 Tanadagi organni bosing yoki ro'yxatdan tanlang</div>
+
+  <div class="toolbar glass">
+    <button id="btnRotate" class="tool active" title="Avtomatik aylantirish">⟳ <span>Aylantirish</span></button>
+    <button id="btnBack" class="tool" title="Orqa tomondan ko'rish">⇄ <span>Orqa/Old</span></button>
+    <button id="btnReset" class="tool" title="Boshlang'ich holat">⌂ <span>Boshiga</span></button>
+    <label class="tool slider" title="Teri shaffofligi">
+      <span>Teri</span>
+      <input id="skin" type="range" min="0" max="45" value="14" />
+    </label>
+  </div>
+
+  <section id="panel" class="panel glass hidden" aria-live="polite"></section>
+
+  <div id="loading" class="loading"><div class="spinner"></div><p>3D model yuklanmoqda...</p></div>
+
+  <noscript><p class="noscript">Bu sayt ishlashi uchun JavaScript yoqilgan bo'lishi kerak.</p></noscript>
+
+  <!-- Three.js (klassik skriptlar — faylni to'g'ridan-to'g'ri ochsa ham ishlaydi) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
